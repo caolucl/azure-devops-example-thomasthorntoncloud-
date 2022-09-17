@@ -2,6 +2,6 @@
 
 Deploying Terraform using an Azure DevOps pipeline, you can use pipeline variables as part of your Terraform variables, in this blog post I will show you how.
 
-[Blog post here](https://thomasthornton.cloud/2022/05/03/if-elseif-or-else-in-azure-devops-pipelines/)
+[Blog post here](https://thomasthornton.cloud/2021/11/10/deploy-azure-kubernetes-service-using-terraform-with-azure-devops-pipeline-and-deploying-a-sample-application/)
 
 
