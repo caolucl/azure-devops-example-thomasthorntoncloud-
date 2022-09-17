@@ -30,6 +30,8 @@ stages:
   - job: create_variables_job
     steps:
     - task: AzureCLI@2
+      displayName: 'Create ADO Variables'
+      name: 'ADO_variables'
       inputs:
         azureSubscription: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
         scriptType: 'bash'
@@ -55,6 +57,7 @@ stages:
     variables:
       VNET_RESOURCE_ID_SET: $[stageDependencies.create_variables_stage.create_variables_job.outputs['ADO_variables.VNET_RESOURCE_ID_SET']]
       VNET_LOCATION_SET: $[stageDependencies.create_variables_stage.create_variables_job.outputs['ADO_variables.VNET_LOCATION_SET']]
+      varFromStageA: $[ stageDependencies.STAGE_X.STAGE_X_JOB_A.outputs['ValidateVar.VarKey'] ]
     steps:
       - task: Bash@3
         displayName: 'Output new ADO Variables'
