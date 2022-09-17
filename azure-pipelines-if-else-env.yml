@@ -36,3 +36,41 @@ stages:
           targetType: inline
           script: |
             echo "The environment selected was ${{parameters.environment}} and colour ${{variables.colour}}"
+
+
+# determine which stage to run
+- ${{ if eq( parameters['environment'], 'develop') }}:
+  - stage: stage1
+    jobs:
+    - job: stage1job
+      steps:
+        - task: Bash@3
+          displayName: stageselected
+          inputs:
+            targetType: inline
+            script: |
+              echo "The stage selected was stage1 as environment: ${{parameters.environment}} was selected"
+ 
+- ${{ elseif eq( parameters['environment'], 'develop') }}:
+  - stage: stage2
+    jobs:
+    - job: stage2job
+      steps:
+        - task: Bash@3
+          displayName: stageselected
+          inputs:
+            targetType: inline
+            script: |
+              echo "The stage selected was stage2 as environment: ${{parameters.environment}} was selected"
+ 
+- ${{ else }}:
+  - stage: stage3
+    jobs:
+    - job: stage3job
+      steps:
+        - task: Bash@3
+          displayName: stageselected
+          inputs:
+            targetType: inline
+            script: |
+              echo "The stage selected was stage3 as environment: ${{parameters.environment}} was selected"
