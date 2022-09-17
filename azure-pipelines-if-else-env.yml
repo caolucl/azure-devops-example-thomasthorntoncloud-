@@ -81,7 +81,7 @@ stages:
             script: |
               echo "The stage selected was stage1 as environment: ${{parameters.environment}} was selected"
  
-- ${{ elseif eq( parameters['environment'], 'develop') }}:
+- ${{ elseif eq( parameters['environment'], 'production') }}:
   - stage: stage2
     jobs:
     - job: stage2job
