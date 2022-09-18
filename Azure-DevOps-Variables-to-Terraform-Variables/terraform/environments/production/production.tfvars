@@ -1,3 +1,3 @@
 name        = "tamops"
-location    = "uksouth"
+location    = "southeastasia"
 environment = "production"
