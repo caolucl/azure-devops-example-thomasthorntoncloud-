@@ -38,10 +38,10 @@ stages :
           command: 'init'
           workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/'
           backendServiceArm: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
-          #backendAzureRmResourceGroupName: '${{ variables.backendAzureRmResourceGroupName}}'
-          #backendAzureRmStorageAccountName: '${{ variables.backendAzureRmStorageAccountName}}'
-          #backendAzureRmContainerName: '${{ variables.backendAzureRmContainerName }}'
-          #backendAzureRmKey: 'terraform.tfstate'
+          backendAzureRmResourceGroupName: 'terraformlcaodev1-rg'
+          backendAzureRmStorageAccountName: 'terraformlcaodev1stg'
+          backendAzureRmContainerName: 'terraform'
+          backendAzureRmKey: 'terraform1.tfstate'
       - task: TerraformTaskV2@2
         displayName: 'validate'
         inputs:
