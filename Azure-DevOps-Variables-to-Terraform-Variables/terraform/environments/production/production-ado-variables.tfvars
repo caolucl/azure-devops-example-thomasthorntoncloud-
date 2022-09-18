@@ -1,1 +1,1 @@
-location    = "uksouth"
+location    = "southeastasia"
