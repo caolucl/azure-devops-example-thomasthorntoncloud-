@@ -38,7 +38,7 @@ stages :
           command: 'init'
           workingDirectory: '$(System.DefaultWorkingDirectory)/Azure-DevOps-Variables-to-Terraform-Variables/terraform/'
           backendServiceArm: '$(backendServiceArm)'#'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
-          backendAzureRmResourceGroupName: '$(terraformlcaodev1-rg)'
+          backendAzureRmResourceGroupName: '$(backendAzureRmResourceGroupName)'
           backendAzureRmStorageAccountName: '$(backendAzureRmStorageAccountName)'
           backendAzureRmContainerName: '$(backendAzureRmContainerName)'
           backendAzureRmKey: '$(backendAzureRmKey)'
