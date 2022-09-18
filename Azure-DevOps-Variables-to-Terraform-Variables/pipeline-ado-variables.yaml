@@ -36,7 +36,7 @@ stages :
         inputs:
           provider: 'azurerm'
           command: 'init'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/Azure-DevOps-Variables-to-Terraform-Variables/terraform/'
           backendServiceArm: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
           backendAzureRmResourceGroupName: 'terraformlcaodev1-rg'
           backendAzureRmStorageAccountName: 'terraformlcaodev1stg'
@@ -47,7 +47,7 @@ stages :
         inputs:
           provider: 'azurerm'
           command: 'validate'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/Azure-DevOps-Variables-to-Terraform-Variables/terraform/'
 
       - task: TerraformTaskV2@2
         displayName: 'plan'
@@ -56,7 +56,7 @@ stages :
           command: 'plan'
           commandOptions: '-input=false -var name=$(name) -var environment=$(Environment) -var-file="../terraform/environments/$(Environment)/$(Environment)-ado-variables.tfvars"'
           environmentServiceNameAzureRM: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/'         
+          workingDirectory: '$(System.DefaultWorkingDirectory)/Azure-DevOps-Variables-to-Terraform-Variables/terraform/'      
  
       # - task: TerraformTaskV2@2
       #   displayName: 'apply'
