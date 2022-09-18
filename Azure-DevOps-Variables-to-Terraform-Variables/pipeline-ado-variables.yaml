@@ -29,7 +29,7 @@ stages :
       #  displayName: 'install'
       #  inputs:
       #    terraformVersion: '1.1.7'
-      - task: TerraformInstaller@0
+      - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
         inputs:
           terraformVersion: '0.12.3'
       - task: TerraformTaskV2@2
