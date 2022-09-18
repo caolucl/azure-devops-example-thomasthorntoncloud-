@@ -17,7 +17,7 @@ variables:
   - name: environment
     value: 'production'
   - name: name
-    value: 'tamops'
+    value: 'azuredevops1-rg'
 
 stages :
   - stage: terraform
