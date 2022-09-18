@@ -26,10 +26,14 @@ stages :
     - job: validate
       continueOnError: false
       steps:
+      #- task: TerraformInstaller@0
+      #  displayName: 'install'
+      #  inputs:
+      #    terraformVersion: '1.1.7'
       - task: TerraformInstaller@0
         displayName: 'install'
         inputs:
-          terraformVersion: '1.1.7'
+          terraformVersion: 'latest'
       - task: TerraformTaskV2@2
         displayName: 'init'
         inputs:
