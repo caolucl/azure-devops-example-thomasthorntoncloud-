@@ -63,6 +63,6 @@ stages :
         inputs:
             provider: 'azurerm'
             command: 'apply'
-            commandOptions: '-input=false -var name=$(name) -var environment=$(Environment) -var-file="../terraform/environments/$(Environment)/$(Environment).tfvars"'
+            commandOptions: '-input=false -var name=$(name) -var environment=$(Environment) -var-file="../terraform/environments/$(Environment)/$(Environment)-ado-variables.tfvars"'
             environmentServiceNameAzureRM: '$(backendServiceArm)'
             workingDirectory: '$(System.DefaultWorkingDirectory)/Azure-DevOps-Variables-to-Terraform-Variables/terraform/'
