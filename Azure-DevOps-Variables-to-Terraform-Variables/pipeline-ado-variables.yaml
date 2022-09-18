@@ -33,17 +33,15 @@ stages :
         inputs:
           terraformVersion: '0.12.3'
       - task: TerraformTaskV2@2
-        displayName: 'init'
         inputs:
           provider: 'azurerm'
           command: 'init'
-          backendServiceArm: 'thomasthorntoncloud'
-          backendAzureRmResourceGroupName: '${{ variables.backendAzureRmResourceGroupName}}'
-          backendAzureRmStorageAccountName: '${{ variables.backendAzureRmStorageAccountName}}'
-          backendAzureRmContainerName: '${{ variables.backendAzureRmContainerName }}'
-          backendAzureRmKey: 'terraform.tfstate'
           workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/'
-
+          backendServiceArm: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
+          #backendAzureRmResourceGroupName: '${{ variables.backendAzureRmResourceGroupName}}'
+          #backendAzureRmStorageAccountName: '${{ variables.backendAzureRmStorageAccountName}}'
+          #backendAzureRmContainerName: '${{ variables.backendAzureRmContainerName }}'
+          #backendAzureRmKey: 'terraform.tfstate'
       - task: TerraformTaskV2@2
         displayName: 'validate'
         inputs:
@@ -56,7 +54,7 @@ stages :
           provider: 'azurerm'
           command: 'plan'
           commandOptions: '-input=false -var name=$(name) -var environment=$(Environment) -var-file="../terraform/environments/$(Environment)/$(Environment)-ado-variables.tfvars"'
-          environmentServiceNameAzureRM: 'thomasthorntoncloud'
+          environmentServiceNameAzureRM: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
           workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/'         
  
       # - task: TerraformTaskV2@2
