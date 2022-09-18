@@ -47,6 +47,7 @@ stages :
         inputs:
           provider: 'azurerm'
           command: 'validate'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/'
 
       - task: TerraformTaskV2@2
         displayName: 'plan'
