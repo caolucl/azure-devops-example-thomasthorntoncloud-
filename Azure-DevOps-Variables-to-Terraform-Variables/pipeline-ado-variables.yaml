@@ -7,11 +7,11 @@ variables:
   - name: backendServiceArm
     value: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
   - name: backendAzureRmResourceGroupName
-    value: 'thomasthorntoncloud'
+    value: 'terraformlcaodev1-rg'
   - name: backendAzureRmStorageAccountName
-    value: 'thomasthorntontfstate'
+    value: 'terraformlcaodev1stg'
   - name: backendAzureRmContainerName
-    value: 'adovariableottf'
+    value: 'terraform'
   - name: backendAzureRmKey
     value: 'terraform.tfstate'
   - name: environment
@@ -37,10 +37,10 @@ stages :
           provider: 'azurerm'
           command: 'init'
           workingDirectory: '$(System.DefaultWorkingDirectory)/Azure-DevOps-Variables-to-Terraform-Variables/terraform/'
-          backendServiceArm: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
-          backendAzureRmResourceGroupName: 'terraformlcaodev1-rg'
-          backendAzureRmStorageAccountName: 'terraformlcaodev1stg'
-          backendAzureRmContainerName: 'terraform'
+          backendServiceArm: '$(backendServiceArm)'#'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
+          backendAzureRmResourceGroupName: '$(terraformlcaodev1-rg)'
+          backendAzureRmStorageAccountName: '$(backendAzureRmStorageAccountName)'
+          backendAzureRmContainerName: '$(backendAzureRmContainerName)'
           backendAzureRmKey: '$(backendAzureRmKey)'
       - task: TerraformTaskV2@2
         displayName: 'validate'
@@ -55,7 +55,7 @@ stages :
           provider: 'azurerm'
           command: 'plan'
           commandOptions: '-input=false -var name=$(name) -var environment=$(Environment) -var-file="../terraform/environments/$(Environment)/$(Environment)-ado-variables.tfvars"'
-          environmentServiceNameAzureRM: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
+          environmentServiceNameAzureRM: '$(backendServiceArm)'
           workingDirectory: '$(System.DefaultWorkingDirectory)/Azure-DevOps-Variables-to-Terraform-Variables/terraform/'
  
       - task: TerraformTaskV2@2
@@ -64,5 +64,5 @@ stages :
             provider: 'azurerm'
             command: 'apply'
             commandOptions: '-input=false -var name=$(name) -var environment=$(Environment) -var-file="../terraform/environments/$(Environment)/$(Environment).tfvars"'
-            environmentServiceNameAzureRM: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
+            environmentServiceNameAzureRM: '$(backendServiceArm)'
             workingDirectory: '$(System.DefaultWorkingDirectory)/Azure-DevOps-Variables-to-Terraform-Variables/terraform/'
