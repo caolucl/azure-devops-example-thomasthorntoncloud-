@@ -74,6 +74,7 @@ stages:
             mkdir test01
             cd test01
             echo "This is the second step" > file01
+            echo "This is the second step" > file02
         displayName: 'Step 2'
 
       - task: PublishBuildArtifacts@1
