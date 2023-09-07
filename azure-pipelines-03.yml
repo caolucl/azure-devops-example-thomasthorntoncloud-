@@ -71,12 +71,14 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            echo "This is the second step" > test01
+            mkdir test01
+            cd test01
+            echo "This is the second step" > file01
         displayName: 'Step 2'
 
       - task: PublishBuildArtifacts@1
         inputs:
           #PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-          PathtoPublish: '$(Build.SourcesDirectory)'
+          PathtoPublish: '$(Build.SourcesDirectory)/test01'
           ArtifactName: 'drop'
         displayName: 'Step 3'
