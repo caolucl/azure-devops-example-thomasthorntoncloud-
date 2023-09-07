@@ -71,7 +71,7 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            echo "This is the second step"
+            echo "This is the second step" > test01
         displayName: 'Step 2'
 
       - task: PublishBuildArtifacts@1
