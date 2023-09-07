@@ -58,3 +58,24 @@ stages:
             script: |
               echo "The stage selected was stage3 as environment: ${{parameters.environment}} was selected by $(Build.Reason)"
       condition: and(succeeded(), eq(variables['Build.Reason'], 'Manual'))
+    - job: Build
+      displayName: 'Build Job'
+      #pool:
+      #  vmImage: 'windows-latest'
+
+      steps:
+      - script: echo This is the first step
+        displayName: 'Step 1'
+
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo "This is the second step"
+        displayName: 'Step 2'
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'drop'
+        displayName: 'Step 3'
