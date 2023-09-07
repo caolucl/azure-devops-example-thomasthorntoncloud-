@@ -7,7 +7,7 @@ pr: none
 variables:
   - group: azure-back-to-school-2021
   - name: backendServiceArm
-    value: 'thomasthorntoncloud'
+    value: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
   
 stages :  
   - stage: az_cli_example
