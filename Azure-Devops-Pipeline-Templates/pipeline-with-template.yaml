@@ -11,7 +11,7 @@ variables:
   
 stages :  
   - stage: az_cli_example
-    parameters:
-      backendServiceArm: ${{ variables.backendServiceArm }}
     jobs:
       - template: templates/az-cli.yaml
+        parameters:
+          backendServiceArm: ${{ variables.backendServiceArm }}
