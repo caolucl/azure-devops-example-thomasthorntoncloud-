@@ -4,7 +4,7 @@ jobs:
           - task: AzureCLI@2
             displayName: 'Create Azure RG'
             inputs:
-              azureSubscription: 'AzureLabDev'
+              azureSubscription: 'AzureLabDev(2f858c57-6594-463c-b525-a5d7afec60cf)'
               scriptType: bash
               scriptLocation: inlineScript
               addSpnToEnvironment: true
