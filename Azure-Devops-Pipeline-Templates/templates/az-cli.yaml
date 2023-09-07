@@ -4,7 +4,7 @@ jobs:
           - task: AzureCLI@2
             displayName: 'Create Azure RG'
             inputs:
-              azureSubscription: ${{ variables.backendServiceArm }}
+              azureSubscription: ${{ parameters.backendServiceArm }}
               scriptType: bash
               scriptLocation: inlineScript
               addSpnToEnvironment: true
