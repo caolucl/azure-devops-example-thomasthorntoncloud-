@@ -30,7 +30,7 @@ stages:
           inputs:
             targetType: inline
             script: |
-              echo "The stage selected was stage1 as environment: ${{parameters.environment}} was selected"
+              echo "The stage selected was stage1 as environment: ${{parameters.environment}} was selected by variables['Build.Reason']"
  
 - ${{ elseif eq( parameters['environment'], 'develop') }}:
   - stage: stage2
@@ -42,7 +42,7 @@ stages:
           inputs:
             targetType: inline
             script: |
-              echo "The stage selected was stage2 as environment: ${{parameters.environment}} was selected"
+              echo "The stage selected was stage2 as environment: ${{parameters.environment}} was selected by variables['Build.Reason'] "
  
 - ${{ else }}:
   - stage: stage3
@@ -54,4 +54,4 @@ stages:
           inputs:
             targetType: inline
             script: |
-              echo "The stage selected was stage3 as environment: ${{parameters.environment}} was selected"
+              echo "The stage selected was stage3 as environment: ${{parameters.environment}} was selected by variables['Build.Reason']"
